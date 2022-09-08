@@ -1,12 +1,15 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const dotenv = require('dotenv')
+
+dotenv.config({path: './config.env'})
 
 const db = new Sequelize({
     dialect: 'postgres',
-    host: 'localhost',
-    username: 'postgres',
-    password: '2811ma',
-    port: 5432,
-    database: 'CheckIn-CheckOut',
+    host: process.env.DB_HOST,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+    database: process.env.DB,
     logging: false,
 });
 
